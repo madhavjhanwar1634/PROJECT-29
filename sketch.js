@@ -20,7 +20,7 @@ world = engine.world;
  polygon=Bodies.circle(100,200,30)
  World.add(world,polygon)
 
-  slingShot = new SlingShot(polygon.body,{x:100,y:200})
+  slingShot = new SlingShot(polygon,{x:100,y:200})
   ground = new Ground(600,height,1200,20);
 //level1
   b1=new Block(300,250,30,40)
@@ -44,12 +44,28 @@ b15=new Block(420,195,30,40)
 //top
 b16=new Block(390,155,30,40)
 
+//level2nd
+b17=new Block(850,210,30,40)
+b18=new Block(880,210,30,40)
+b19=new Block(910,210,30,40)
+b20=new Block(940,210,30,40)
+b21=new Block(970,210,30,40)
+b22=new Block(1000,210,30,40)
+//level2nd2
+b23=new Block(880,170,30,40)
+b24=new Block(910,170,30,40)
+b25=new Block(940,170,30,40)
+b26=new Block(970,170,30,40)
 
+//level2nd1
+b27=new Block(910,140,30,40)
+b28=new Block(940,140,30,40)
 }
 
 function draw() {
 background(0); 
 ground.display()
+imageMode(CENTER)
 image(polygonIMG,polygon.position.x,polygon.position.y,30,30)
 slingShot.display()
 b1.display()
@@ -68,15 +84,28 @@ b13.display()
 b14.display()
 b15.display()
 b16.display()
+b17.display()
+b18.display()
+b19.display()
+b20.display()
+b21.display()
+b22.display()
+b23.display()
+b24.display()
+b25.display()
+b26.display()
+b27.display()
+b28.display()
+
 
 
 drawSprites();
 }
 function mouseDragged(){
-  Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
+  Matter.Body.setPosition(polygon, {x: mouseX , y: mouseY});
 }
 
 
 function mouseReleased(){
-  slingshot.fly();
+  slingShot.fly();
 }
