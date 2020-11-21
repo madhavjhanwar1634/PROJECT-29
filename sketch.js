@@ -16,8 +16,12 @@ function setup() {
   var canvas = createCanvas(1200,400);
 engine = Engine.create();
 world = engine.world;
-
- polygon=Bodies.circle(100,200,30)
+var options={
+  density:1.2,
+  friction:0.2,
+  restitution:0.3
+}
+ polygon=Bodies.circle(100,200,30,options)
  World.add(world,polygon)
 
   slingShot = new SlingShot(polygon,{x:100,y:200})
@@ -30,7 +34,7 @@ world = engine.world;
   b5=new Block(420,250,30,40)
   b6=new Block(450,250,30,40)
   b7=new Block(480,250,30,40)
-
+  base1=new Ground(380,265,240,10)
 //level2
 b8=new Block(330,235,30,40)
 b9=new Block(360,235,30,40)
@@ -43,7 +47,7 @@ b14=new Block(390,195,30,40)
 b15=new Block(420,195,30,40)
 //top
 b16=new Block(390,155,30,40)
-
+base2=new Ground(915,225,200,10)
 //level2nd
 b17=new Block(850,210,30,40)
 b18=new Block(880,210,30,40)
@@ -64,10 +68,13 @@ b28=new Block(940,140,30,40)
 
 function draw() {
 background(0); 
+Engine.update(engine)
 ground.display()
 imageMode(CENTER)
 image(polygonIMG,polygon.position.x,polygon.position.y,30,30)
 slingShot.display()
+base1.display()
+base2.display()
 b1.display()
 b2.display()
 b3.display()
